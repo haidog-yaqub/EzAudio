@@ -4,6 +4,12 @@
 
 🚀 EzAudio is an advanced, efficient diffusion-based text-to-audio generation model. Designed for real-world audio applications, EzAudio brings together high-quality audio synthesis with lower computational demands.
 
-🎛 Try the [EzAudio Gradio Demo](https://huggingface.co/spaces/OpenSound/EzAudio) on Hugging Face Space!
+🎛 Try [EzAudio's Gradio Demo](https://huggingface.co/spaces/OpenSound/EzAudio) on HuggingFace Space!
 
 Stay tuned for more updates and the official release! 🎧
+
+## Todo
+- [x] Release Gradio Demo
+- [ ] Release ControlNet
+- [ ] Release different versions of checkpoints
+- [ ] Release training pipeline and dataset

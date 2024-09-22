@@ -2,7 +2,7 @@
 
 # EzAudio: Enhancing Text-to-Audio Generation with Efficient Diffusion Transformer
 
-😈 EzAudio is an advanced, efficient diffusion-based text-to-audio generation model. Designed for real-world audio applications, EzAudio brings together high-quality audio synthesis with lower computational demands.
+🟣 EzAudio is an advanced, efficient diffusion-based text-to-audio generation model. Designed for real-world audio applications, EzAudio brings together high-quality audio synthesis with lower computational demands.
 
 🎛 Check out [EzAudio: Text-to-Audio Generation, Editing, and Inpainting](https://huggingface.co/spaces/OpenSound/EzAudio) and [EzAudio-ControlNet](https://huggingface.co/spaces/OpenSound/EzAudio-ControlNet) on Hugging Face Spaces!
 

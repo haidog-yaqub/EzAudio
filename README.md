@@ -9,7 +9,8 @@
 🎧 Stay tuned for more updates and the official release!
 
 ## Todo
-- [x] Release Gradio Demo
-- [x] Release ControlNet Demo
-- [ ] Release different versions of checkpoints
+- [x] Release Gradio Demo along with checkpoints [EzAudio Space](https://huggingface.co/spaces/OpenSound/EzAudio)
+- [x] Release ControlNet Demo along with checkpoints [EzAudio ControlNet Space](https://huggingface.co/spaces/OpenSound/EzAudio-ControlNet)
+- [x] Release inference code 
+- [ ] Release checkpoints for stage1 and stage2
 - [ ] Release training pipeline and dataset

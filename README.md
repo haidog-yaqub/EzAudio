@@ -4,7 +4,8 @@
 
 🟣 EzAudio is a diffusion-based text-to-audio generation model. Designed for real-world audio applications, EzAudio brings together high-quality audio synthesis with lower computational demands.
 
-🎛 Play EzAudio on Hugging Face Space: [EzAudio: Text-to-Audio Generation, Editing, and Inpainting](https://huggingface.co/spaces/OpenSound/EzAudio) and [EzAudio-ControlNet](https://huggingface.co/spaces/OpenSound/EzAudio-ControlNet)!
+🎛 Play EzAudio on Hugging Face Space: [EzAudio: Text-to-Audio Generation, Editing, and Inpainting](https://huggingface.co/spaces/OpenSound/EzAudio)
+🎮 EzAudio-ControlNet is available: [EzAudio-ControlNet](https://huggingface.co/spaces/OpenSound/EzAudio-ControlNet)!
 
 ## Installation
 
@@ -20,7 +21,23 @@ pip install -r requirements.txt
 You can use the model with the following code:
 
 ```python
-from api import EzAudio
+from api.ezaudio import load_models, generate_audio
+
+# model and config paths
+config_name = 'ckpts/ezaudio-xl.yml'
+ckpt_path = 'ckpts/s3/ezaudio_s3_xl.pt'
+vae_path = 'ckpts/vae/1m.pt'
+# save_path = 'output/'
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+# load model
+(autoencoder, unet, tokenizer,
+ text_encoder, noise_scheduler, params) = load_models(config_name, ckpt_path,
+                                                      vae_path, device)
+
+prompt = "a dog barking in the distance"
+sr, audio = generate_audio(prompt, autoencoder, unet, tokenizer, text_encoder, noise_scheduler, params, device)
+
 ```
 
 ## Todo

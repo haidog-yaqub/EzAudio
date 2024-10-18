@@ -5,6 +5,7 @@
 🟣 EzAudio is a diffusion-based text-to-audio generation model. Designed for real-world audio applications, EzAudio brings together high-quality audio synthesis with lower computational demands.
 
 🎛 Play EzAudio on Hugging Face Space: [EzAudio: Text-to-Audio Generation, Editing, and Inpainting](https://huggingface.co/spaces/OpenSound/EzAudio)
+
 🎮 EzAudio-ControlNet is available: [EzAudio-ControlNet](https://huggingface.co/spaces/OpenSound/EzAudio-ControlNet)!
 
 ## Installation

@@ -1,4 +1,4 @@
-<img src="ezaudio.png">
+<img src="arts/ezaudio.png">
 
 # EzAudio: Enhancing Text-to-Audio Generation with Efficient Diffusion Transformer
 

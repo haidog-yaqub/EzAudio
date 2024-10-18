@@ -10,12 +10,16 @@
 
 ## Installation
 
-Clone the repository and install the dependencies:
+Clone the repository:
 ```
 git clone git@github.com:haidog-yaqub/EzAudio.git
+```
+Install the dependencies:
+```
 cd EzAudio
 pip install -r requirements.txt
 ```
+Download checkponts from: [https://huggingface.co/OpenSound/EzAudio](https://huggingface.co/OpenSound/EzAudio)
 
 ## Usage
 

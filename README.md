@@ -50,7 +50,8 @@ sr, audio = generate_audio(prompt, autoencoder, unet, tokenizer, text_encoder, n
 ## Todo
 - [x] Release Gradio Demo along with checkpoints [EzAudio Space](https://huggingface.co/spaces/OpenSound/EzAudio)
 - [x] Release ControlNet Demo along with checkpoints [EzAudio ControlNet Space](https://huggingface.co/spaces/OpenSound/EzAudio-ControlNet)
-- [x] Release inference code 
+- [x] Release inference code
+- [ ] Improve API and support automatic ckpts downloading.
 - [ ] Release checkpoints for stage1 and stage2
 - [ ] Release training pipeline and dataset
 

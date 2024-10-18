@@ -19,9 +19,9 @@ pip install -r requirements.txt
 
 You can use the model with the following code:
 
-‘’python
+```python
 from api import EzAudio
-''
+```
 
 ## Todo
 - [x] Release Gradio Demo along with checkpoints [EzAudio Space](https://huggingface.co/spaces/OpenSound/EzAudio)
@@ -29,3 +29,19 @@ from api import EzAudio
 - [x] Release inference code 
 - [ ] Release checkpoints for stage1 and stage2
 - [ ] Release training pipeline and dataset
+
+## Reference
+
+If you find the code useful for your research, please consider citing:
+
+```bibtex
+@article{hai2024ezaudio,
+  title={EzAudio: Enhancing Text-to-Audio Generation with Efficient Diffusion Transformer},
+  author={Hai, Jiarui and Xu, Yong and Zhang, Hao and Li, Chenxing and Wang, Helin and Elhilali, Mounya and Yu, Dong},
+  journal={arXiv preprint arXiv:2409.10819},
+  year={2024}
+}
+```
+
+## Acknowledgement
+Some code are borrowed from or inspired by: [U-Vit](https://github.com/baofff/U-ViT), [Pixel-Art](https://github.com/PixArt-alpha/PixArt-alpha), [Huyuan-DiT](https://github.com/Tencent/HunyuanDiT), [Stable Audio](https://github.com/Stability-AI/stable-audio-tools).

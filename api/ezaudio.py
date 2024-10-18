@@ -47,9 +47,10 @@ def load_models(config_name, ckpt_path, vae_path, device):
     return autoencoder, unet, tokenizer, text_encoder, noise_scheduler, params
 
 
-def generate_audio(text, length=10,
+def generate_audio(text, autoencoder, unet, tokenizer, text_encoder, noise_scheduler, params, device,
+                   length=10,
                    guidance_scale=5, guidance_rescale=0.75, ddim_steps=100, eta=1,
-                   random_seed=None, randomize_seed=True):
+                   random_seed=None, randomize_seed=False):
     neg_text = None
     length = length * params['autoencoder']['latent_sr']
 
@@ -79,7 +80,8 @@ def generate_audio(text, length=10,
     return params['autoencoder']['sr'], pred
 
 
-def editing_audio(text, boundary,
+def editing_audio(text, autoencoder, unet, tokenizer, text_encoder, noise_scheduler, params, device,
+                  boundary,
                   gt_file, mask_start, mask_length,
                   guidance_scale, guidance_rescale, ddim_steps, eta,
                   random_seed, randomize_seed):
@@ -157,38 +159,4 @@ def editing_audio(text, boundary,
     return params['autoencoder']['sr'], pred
 
 
-# Examples (if needed for the demo)
-examples = [
-    "a dog barking in the distance",
-    "light guitar music is playing",
-    "a duck quacks as waves crash gently on the shore",
-    "footsteps crunch on the forest floor as crickets chirp",
-    "a horse clip-clops in a windy rain as thunder cracks in the distance",
-]
-
-# Examples (if needed for the demo)
-examples_edit = [
-    ["A train passes by, blowing its horns", 2, 3],
-    ["kids playing and laughing nearby", 5, 4],
-    ["rock music playing on the street", 8, 6]
-]
-
-
 MAX_SEED = np.iinfo(np.int32).max
-
-# Model and config paths
-config_name = 'ckpts/ezaudio-xl.yml'
-ckpt_path = 'ckpts/s3/ezaudio_s3_xl.pt'
-vae_path = 'ckpts/vae/1m.pt'
-# save_path = 'output/'
-# os.makedirs(save_path, exist_ok=True)
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
-
-(autoencoder, unet, tokenizer,
- text_encoder, noise_scheduler, params) = load_models(config_name, ckpt_path,
-                                                      vae_path, device)
-
-if __name__ == '__main__':
-    prompt = "a dog barking in the distance"
-    sr, audio = generate_audio(prompt)
-    sf.write(f'{prompt}.wav', audio, sr)

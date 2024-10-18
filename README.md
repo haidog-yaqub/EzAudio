@@ -21,7 +21,7 @@ Install the dependencies:
 cd EzAudio
 pip install -r requirements.txt
 ```
-Download checkponts from: [https://huggingface.co/OpenSound/EzAudio](https://huggingface.co/OpenSound/EzAudio)
+Download checkponts from: [https://huggingface.co/OpenSound/EzAudio](https://huggingface.co/OpenSound/EzAudio/tree/main)
 
 ## Usage
 

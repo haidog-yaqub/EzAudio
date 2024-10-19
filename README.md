@@ -28,30 +28,23 @@ Download checkponts from: [https://huggingface.co/OpenSound/EzAudio](https://hug
 You can use the model with the following code:
 
 ```python
-from api.ezaudio import load_models, generate_audio
+from api.ezaudio import EzAudio
+import torch
+import soundfile as sf
 
-# model and config paths
-config_name = 'ckpts/ezaudio-xl.yml'
-ckpt_path = 'ckpts/s3/ezaudio_s3_xl.pt'
-vae_path = 'ckpts/vae/1m.pt'
-# save_path = 'output/'
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-
-# load model
-(autoencoder, unet, tokenizer,
- text_encoder, noise_scheduler, params) = load_models(config_name, ckpt_path,
-                                                      vae_path, device)
+ezaudio = EzAudio(model_name='s3_xl', device='cpu')
 
 prompt = "a dog barking in the distance"
-sr, audio = generate_audio(prompt, autoencoder, unet, tokenizer, text_encoder, noise_scheduler, params, device)
-
+sr, audio = ezaudio.generate_audio(prompt)
+sf.write(f'{prompt}.wav', audio, sr)
 ```
 
 ## Todo
 - [x] Release Gradio Demo along with checkpoints [EzAudio Space](https://huggingface.co/spaces/OpenSound/EzAudio)
 - [x] Release ControlNet Demo along with checkpoints [EzAudio ControlNet Space](https://huggingface.co/spaces/OpenSound/EzAudio-ControlNet)
 - [x] Release inference code
-- [ ] Improve API and support automatic ckpts downloading.
+- [ ] Improve API and support automatic ckpts downloading [WIP]
 - [ ] Release checkpoints for stage1 and stage2
 - [ ] Release training pipeline and dataset
 

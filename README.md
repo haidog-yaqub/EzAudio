@@ -4,7 +4,7 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2409.10819-brightgreen.svg?style=flat-square)](https://arxiv.org/abs/2409.10819)
 [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/spaces/OpenSound/EzAudio)
-[![Official Page](https://img.shields.io/badge/Official%20Page-blue?logo=Github&style=flat-square)](https://haidog-yaqub.github.io/EzAudio-Page/)
+[![Official Page](https://img.shields.io/badge/Official%20Page-EzAudio-blue?logo=Github&style=flat-square)](https://haidog-yaqub.github.io/EzAudio-Page/)
 
 🟣 EzAudio is a diffusion-based text-to-audio generation model. Designed for real-world audio applications, EzAudio brings together high-quality audio synthesis with lower computational demands.
 

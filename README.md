@@ -11,7 +11,7 @@
 
 🎮 EzAudio-ControlNet is available: [EzAudio-ControlNet Space](https://huggingface.co/spaces/OpenSound/EzAudio-ControlNet)
 
-We want to thank Hugging Face Space and Gradio for providing incredible demo platform.
+<!-- We want to thank Hugging Face Space and Gradio for providing incredible demo platform. -->
 
 ## Installation
 

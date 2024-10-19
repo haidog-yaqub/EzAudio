@@ -33,7 +33,7 @@ import torch
 import soundfile as sf
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-ezaudio = EzAudio(model_name='s3_xl', device='cpu')
+ezaudio = EzAudio(model_name='s3_xl', device=device)
 
 prompt = "a dog barking in the distance"
 sr, audio = ezaudio.generate_audio(prompt)

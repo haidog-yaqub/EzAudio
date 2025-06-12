@@ -56,10 +56,10 @@ sf.write(f'{prompt}_edit.wav', audio, sr)
 
 ## Training
 
-## Autoencoder
+#### Autoencoder -->
 Refer to the VAE training section in our work [SoloAudio](https://github.com/WangHelin1997/SoloAudio)
 
-## T2A
+#### T2A Diffusion Model
 Prepare your data (see example in `src/dataset/meta_example.csv`), then run:
 
 ```bash

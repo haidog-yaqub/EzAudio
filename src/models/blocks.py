@@ -17,7 +17,7 @@ class AdaLN(nn.Module):
         elif ada_mode == 'ada_single':
             # adaln used in pixel-art alpha
             self.scale_shift_table = nn.Parameter(torch.zeros(6, dim))
-        elif ada_mode in ['ada_solo', 'ada_sola_bias']:
+        elif ada_mode in ['ada_sola', 'ada_sola_bias']:
             self.lora_a = nn.Linear(dim, r * 6, bias=False)
             self.lora_b = nn.Linear(r * 6, dim * 6, bias=False)
             self.scaling = alpha / r

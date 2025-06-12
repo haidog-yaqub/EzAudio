@@ -1,0 +1,64 @@
+model_name: EzAudio-L
+
+model:
+  mae: True
+  mae_prob: 0.25
+  mask_ratio: [0.25, 1.0]
+  mask_span: 10
+  img_size: 500
+  patch_size: 1
+  in_chans: 257
+  out_chans: 128
+  input_type: '1d'
+  embed_dim: 1024
+  depth: 24
+  num_heads: 16
+  mlp_ratio: 4.0
+  qkv_bias: false
+  qk_scale: null
+  qk_norm: layernorm
+  norm_layer: layernorm
+  act_layer: geglu
+  context_norm: true
+  use_checkpoint: true
+  time_fusion: 'ada_sola_bias'
+  ada_sola_rank: 32
+  ada_sola_alpha: 32
+  cls_dim: null
+  context_dim: 1024
+  context_fusion: 'cross'
+  context_max_length: null
+  context_pe_method: 'none'
+  pe_method: 'none'
+  rope_mode: 'shared'
+  use_conv: true
+  skip: true
+  skip_norm: true
+
+autoencoder:
+  name: stable_vae
+  dim: 128
+  sr: 24000
+  latent_sr: 50
+  q_first: true
+  scale: 1.0
+  shift: 0.0
+
+text_encoder:
+  model: google/flan-t5-large
+  max_length: 100
+  cfg: 0.1
+
+diff:
+  num_train_timesteps: 1000
+  beta_schedule: 'scaled_linear'
+  beta_start: 0.00085
+  beta_end: 0.012
+  prediction_type: 'v_prediction'
+  rescale_betas_zero_snr: true
+  timestep_spacing: 'trailing'
+  clip_sample: false
+
+
+opt: !include opt_config.yml
+data: !include data_config.yml

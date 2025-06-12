@@ -54,13 +54,26 @@ sr, audio = ezaudio.editing_audio(prompt, boundary=2, gt_file=original_audio,
 sf.write(f'{prompt}_edit.wav', audio, sr)
 ```
 
+## Training
+
+## Autoencoder
+Refer to the VAE training section in our work [SoloAudio](https://github.com/WangHelin1997/SoloAudio)
+
+## T2A
+Prepare your data (see example in `src/dataset/meta_example.csv`), then run:
+
+```bash
+cd src
+accelerate launch train.py
+```
+
 ## Todo
 - [x] Release Gradio Demo along with checkpoints [EzAudio Space](https://huggingface.co/spaces/OpenSound/EzAudio)
 - [x] Release ControlNet Demo along with checkpoints [EzAudio ControlNet Space](https://huggingface.co/spaces/OpenSound/EzAudio-ControlNet)
 - [x] Release inference code
-- [ ] Improve API and support automatic ckpts downloading [WIP]
-- [ ] Release checkpoints for stage1 and stage2
-- [ ] Release training pipeline and dataset
+- [x] Release training pipeline and dataset
+- [x] Improve API and support automatic ckpts downloading 
+- [ ] Release checkpoints for stage1 and stage2 [WIP]
 
 ## Reference
 

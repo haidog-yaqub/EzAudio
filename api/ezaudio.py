@@ -20,6 +20,9 @@ MAX_SEED = np.iinfo(np.int32).max
 configs = {'s3_xl': {'path': 'ckpts/s3/ezaudio_s3_xl.pt',
                      'url': 'https://huggingface.co/OpenSound/EzAudio/resolve/main/ckpts/s3/ezaudio_s3_xl.pt',
                      'config': 'ckpts/ezaudio-xl.yml'},
+           's3_l': {'path': 'ckpts/s3/ezaudio_s3_l.pt',
+                     'url': 'https://huggingface.co/OpenSound/EzAudio/resolve/main/ckpts/s3/ezaudio_s3_l.pt',
+                     'config': 'ckpts/ezaudio-l.yml'},
           'vae': {'path': 'ckpts/vae/1m.pt', 
                   'url': 'https://huggingface.co/OpenSound/EzAudio/resolve/main/ckpts/vae/1m.pt'}
           }
@@ -81,9 +84,9 @@ class EzAudio:
         unet.load_state_dict(torch.load(ckpt_path, map_location='cpu')['model'])
         unet.eval()
 
-        if device == 'cuda':
-            accelerator = Accelerator(mixed_precision="fp16")
-            unet = accelerator.prepare(unet)
+        # if device == 'cuda':
+        #     accelerator = Accelerator(mixed_precision="fp16")
+        #     unet = accelerator.prepare(unet)
 
         # Load noise scheduler
         noise_scheduler = DDIMScheduler(**params['diff'])

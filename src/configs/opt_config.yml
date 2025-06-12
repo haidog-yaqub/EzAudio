@@ -1,0 +1,15 @@
+# set 5.0e-05 for 32 batch
+# set 1.0e-04 for 64 batch
+# set 2.0e-0.4 for 128 or larger batch
+learning_rate: 5.0e-05
+beta1: 0.9
+beta2: 0.999
+weight_decay: 0.01
+adam_epsilon: 1.0e-08
+warmup: 5000
+grad_clip: 1.0
+snr_gamma: null
+batch_size: 16
+accumulation_steps: 2
+# snr_gamma: 5.0 is used in tango, not stable, might use it in later experiment
+# real batch = n_gpu * batch * accumulation

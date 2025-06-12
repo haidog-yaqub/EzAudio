@@ -1,0 +1,25 @@
+# dataset_config.yml
+train:
+  data_dir: 'your audio dir/t2adata_24k/'
+  meta_dir: 'your meta csv/mini_dataset_index.csv'
+  subset: 'train'
+  fine_tune: false
+  seg_length: 10
+  sr: 24000
+  aug_config:
+    phase180:
+        p: 0.5
+  mono: false
+  norm: true
+  prepare_mode: false
+  # text_path: '/home/jerry/Projects/Dataset/t2adata_24k/t5_l'
+  # uncond_path: 'dataset/uncond_t5_l.pt'
+  # cfg_prob: 0.1
+
+train_frames: 500
+sr: 24000
+
+val_dir: 'your audio dir/t2adata_24k/'
+val_meta: 'your meta csv/val.csv'
+test_dir: 'your audio dir/t2adata_24k/'
+test_meta: 'your meta csv/test.csv'

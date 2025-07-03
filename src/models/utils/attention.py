@@ -113,7 +113,7 @@ class Attention(nn.Module):
             attn = add_mask(attn, mask_binary) if mask_binary is not None else attn
             attn = attn.softmax(dim=-1)
             attn = self.attn_drop(attn)
-            x = (attn @ v).transpose(1, 2)
+            x = (attn @ v)
             x = einops.rearrange(x, 'B H L D -> B L (H D)')
         else:
             raise NotImplementedError

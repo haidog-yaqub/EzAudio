@@ -9,7 +9,7 @@
 
 🎛 Play with EzAudio for text-to-audio generation, editing, and inpainting: [EzAudio Space](https://huggingface.co/spaces/OpenSound/EzAudio)
 
-🎮 EzAudio-ControlNet is available: [EzAudio-ControlNet Space](https://huggingface.co/spaces/OpenSound/EzAudio-ControlNet)
+🎮 EzAudio-ControlNet Demo is available: [EzAudio-ControlNet Space](https://huggingface.co/spaces/OpenSound/EzAudio-ControlNet)
 
 <!-- We want to thank Hugging Face Space and Gradio for providing incredible demo platform. -->
 

@@ -48,10 +48,30 @@ sf.write(f'{prompt}.wav', audio, sr)
 
 # audio inpainting
 prompt = "A train passes by, blowing its horns"
-original_audio = 'ref.wav'
+original_audio = 'egs/edit_example.wav'
 sr, audio = ezaudio.editing_audio(prompt, boundary=2, gt_file=original_audio,
                                   mask_start=1, mask_length=5)
 sf.write(f'{prompt}_edit.wav', audio, sr)
+```
+
+ControlNet Usage:
+
+```python
+
+from api.ezaudio import EzAudio
+import torch
+import soundfile as sf
+
+# load model
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+controlnet = EzAudio_ControlNet(model_name='energy', device=device)
+
+prompt = 'dog barking'
+# path for audio reference
+audio_path = 'egs/reference.mp3'
+
+sr, audio = controlnet.generate_audio(prompt, audio_path=audio_path)
+sf.write(f"{prompt}_control.wav", audio, samplerate=sr)
 ```
 
 ## Training
@@ -73,7 +93,6 @@ accelerate launch train.py
 - [x] Release inference code
 - [x] Release training pipeline and dataset
 - [x] Improve API and support automatic ckpts downloading 
-- [ ] Release checkpoints for stage1 and stage2 [WIP]
 
 ## Reference
 

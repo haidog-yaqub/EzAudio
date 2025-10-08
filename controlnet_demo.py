@@ -1,9 +1,6 @@
 from api.controlnet import EzAudio_ControlNet
 import torch
 import soundfile as sf
-import pandas as pd
-import os
-from tqdm import tqdm
 
 
 if __name__ == '__main__':

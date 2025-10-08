@@ -3,7 +3,7 @@ import torch.nn as nn
 
 from .utils.modules import PatchEmbed, TimestepEmbedder
 from .utils.modules import PE_wrapper, RMSNorm
-from .blocks import DiTBlock, JointDiTBlock
+from .blocks import DiTBlock
 from .utils.span_mask import compute_mask_indices
 
 
@@ -95,7 +95,7 @@ class DiTControlNet(nn.Module):
                  use_checkpoint=False,
                  # time fusion ada or token
                  time_fusion='token',
-                 ada_lora_rank=None, ada_lora_alpha=None,
+                 ada_sola_rank=None, ada_sola_alpha=None,
                  cls_dim=None,
                  # max length is only used for concat
                  context_dim=768, context_fusion='concat',
@@ -149,12 +149,12 @@ class DiTControlNet(nn.Module):
             # put token at the beginning of sequence
             self.extras = 2 if self.cls_embed else 1
             self.time_pe = PE_wrapper(dim=embed_dim, method='abs', length=self.extras)
-        elif time_fusion in ['ada', 'ada_single', 'ada_lora', 'ada_lora_bias']:
+        elif time_fusion in ['ada', 'ada_single', 'ada_sola', 'ada_sola_bias']:
             self.use_adanorm = True
             # aviod  repetitive silu for each adaln block
             self.time_act = nn.SiLU()
             self.extras = 0
-            if time_fusion in ['ada_single', 'ada_lora', 'ada_lora_bias']:
+            if time_fusion in ['ada_single', 'ada_sola', 'ada_sola_bias']:
                 # shared adaln
                 self.time_ada = nn.Linear(embed_dim, 6 * embed_dim, bias=True)
             else:
@@ -193,11 +193,8 @@ class DiTControlNet(nn.Module):
                 raise NotImplementedError
         print(f'context fusion mode: {context_fusion}')
         print(f'context position embedding: {context_pe_method}')
-
-        if self.context_fusion == 'joint':
-            Block = JointDiTBlock
-        else:
-            Block = DiTBlock
+   
+        Block = DiTBlock
 
         # norm layers
         if norm_layer == 'layernorm':
@@ -214,7 +211,7 @@ class DiTControlNet(nn.Module):
                 qkv_bias=qkv_bias, qk_scale=qk_scale, qk_norm=qk_norm,
                 act_layer=act_layer, norm_layer=norm_layer,
                 time_fusion=time_fusion,
-                ada_lora_rank=ada_lora_rank, ada_lora_alpha=ada_lora_alpha,
+                ada_sola_rank=ada_sola_rank, ada_sola_alpha=ada_sola_alpha,
                 skip=False, skip_norm=False,
                 rope_mode=self.rope,
                 context_norm=context_norm,

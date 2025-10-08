@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.utils.checkpoint import checkpoint
-from .utils.attention import Attention, JointAttention
+from .utils.attention import Attention
 from .utils.modules import unpatchify, FeedForward
 from .utils.modules import film_modulate
 
@@ -158,7 +158,6 @@ class DiTBlock(nn.Module):
             x = x + self.mlp(self.norm3(x))
 
         return x
-
 
 
 class FinalBlock(nn.Module):

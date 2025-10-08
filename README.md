@@ -13,6 +13,11 @@
 
 <!-- We want to thank Hugging Face Space and Gradio for providing incredible demo platform. -->
 
+## News
+<!-- - [SynSonic](https://github.com/JHU-LCAP/SynSonic ), leveraging EzAudio and ControlNet for sound event detection (SED) data augmentation, was accepted to WASPAA 2025. -->
+
+-  2025.05 EzAudio has been accepted for an oral presentation at InternSpeech 2025.
+
 ## Installation
 
 Clone the repository:
